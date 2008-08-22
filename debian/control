@@ -1,0 +1,15 @@
+Source: boot-local-kernel
+Priority: optional
+Maintainer: Mikhail Gusarov <dottedmag@dottedmag.net>
+Build-Depends: debhelper (>= 4.2.0)
+Section: core
+XCS-Cross-Host-Build-Depends: debhelper (>= 4.2.0)
+Standards-Version: 3.8.0
+
+Package: boot-local-kernel
+Architecture: all
+Depends: kexec-tools
+Section: core
+Description: reboots to local kernel after booting from NFS
+ boot-local-kernel starts early during the boot, detects did device boot from
+ NFS and reboots to locally installed kernel using kexec if necessary.

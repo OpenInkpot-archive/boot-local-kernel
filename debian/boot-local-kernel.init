@@ -1,0 +1,23 @@
+#!/bin/sh -e
+
+[ -x /sbin/kexec ] || exit 0
+
+case "$1" in
+    start)
+        case `uname -r` in
+            *-nfsroot)
+                kexec -l /boot/vmlinuz
+                kexec -e
+                exit 1
+                ;;
+        esac
+        ;;
+    stop|restart|force-reload)
+        ;;
+    *)
+        echo "Usage: /etc/init.d/boot-local-kernel {start|stop|restart|force-reload}"
+        exit 1
+        ;;
+esac
+
+exit 0

@@ -1,0 +1,6 @@
+boot-local-kernel (0.1-1) unstable; urgency=low
+
+  * Initial packaging.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Fri, 22 Aug 2008 23:55:35 +0700
+
