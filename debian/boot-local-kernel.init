@@ -4,12 +4,20 @@
 
 case "$1" in
     start)
+        echo -n "Rebooting into local kernel: "
         case `uname -r` in
             *-nfsroot)
-                kexec -l /boot/vmlinuz
-                kexec -e
-                exit 1
-                ;;
+                if [ -e /boot/vmlinuz ]; then
+                    kexec -l /boot/vmlinuz
+                    echo "/boot/vmlinuz."
+                    kexec -e
+                    exit 1
+                else
+                    echo "failed, /boot/vmlinuz is missing."
+                    exit 1
+                fi;;
+            *)
+                echo "skipped, not a nfsroot.";;
         esac
         ;;
     stop|restart|force-reload)
