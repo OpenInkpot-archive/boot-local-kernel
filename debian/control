@@ -1,9 +1,9 @@
 Source: boot-local-kernel
+Section: core
 Priority: optional
 Maintainer: Mikhail Gusarov <dottedmag@dottedmag.net>
-Build-Depends: debhelper (>= 4.2.0)
-Section: core
-XCS-Cross-Host-Build-Depends: debhelper (>= 4.2.0)
+Build-Depends: debhelper (>= 7)
+XCS-Cross-Host-Build-Depends: debhelper (>= 7)
 Standards-Version: 3.8.0
 
 Package: boot-local-kernel

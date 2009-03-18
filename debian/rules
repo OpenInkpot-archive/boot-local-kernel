@@ -1,19 +1,16 @@
 #!/usr/bin/make -f
 
-build-arch:
-build-indep:
-
-build: build-arch build-indep
+build:
 
 clean:
 	dh_testdir
 	dh_testroot
 	dh_clean
 
-install: build-indep
+install:
 	dh_testdir
 	dh_testroot
-	dh_clean -k
+	dh_prep
 	dh_installdirs
 
 binary-arch:
@@ -21,10 +18,6 @@ binary-arch:
 binary-indep: install
 	dh_testdir
 	dh_testroot
-ifneq (,$(findstring docs,$(SLIND_BUILD_OPTIONS)))
-	dh_installdocs -i
-	dh_istallchangelogs -i
-endif
 	dh_installinit -i --no-start -- start 03 S .
 	dh_link -i
 	dh_compress -i
